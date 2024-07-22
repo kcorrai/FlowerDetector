@@ -1,0 +1,15 @@
+0 carnation
+1 chrysanthemum
+2 daffodil
+3 daisy
+4 hyacinth
+5 Iris
+6 lavender
+7 lily
+8 marigold
+9 orchid
+10 peony
+11 poppy
+12 rose
+13 sunflower
+14 tulip

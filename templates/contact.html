@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact With Us</title>
+    <meta name="author" content="kcorrai" />
+    <meta name="description" content="Contact Page of Flower Detector Website" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="icon" href="../static/img/flower-detector-icon.png" />
+  </head>
+  <body>
+    <header class="header">
+      {% block content %}
+      <h1 class="header__h1">Contact With Us</h1>
+      <nav class="header__nav">
+        <ul class="header__ul">
+          <li>
+            <a class="a" href={{'/'}}>Home</a>
+          </li>
+          <li>
+            <a class="a" href={{'/flower-detector'}}>Detector</a>
+          </li>
+          <li>
+            <a class="a" href={{'/about'}}>About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <img src="../static/img/contactbg.jpg" alt="Welcome to Flower Detector!" width="1200" />
+    </section>
+
+    <main class="main__contact other_main">
+      <div class="hero">
+        <form action="{{ url_for('contact') }}" method="post">
+          <div class="input-group">
+            <label class="contact_label" for="name">Your Nickname:</label>
+            <input type="text" name="name" id="name" placeholder="You Don't Have to Use Your Real Name" required />
+          </div>
+          <div class="input-group">
+            <label for="email">E-mail Id:</label>
+            <input type="email" name="email" id="email" placeholder="forexample@example.com" />
+          </div>
+          <div class="input-group">
+            <label for="idea">Type Your Idea:</label>
+            <textarea name="idea" id="idea" cols="10" rows="10" required>{{voice}}</textarea>
+          </div>
+          <div class="speechdiv"><a href="/voice" class="mic__button">Tap to Talk</a></div>
+          <button class="button" type="submit">SUBMIT</button>
+        </form>
+      </div>
+      {% endblock %}
+    </main>
+
+
+    <footer class="footer">
+      <p>
+        <span class="nowrap">Copyright &copy; <time id="year"></time></span>
+        <span class="nowrap">Flower Detector</span>
+      </p>
+    </footer>
+  </body>
+</html>

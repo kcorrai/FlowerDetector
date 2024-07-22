@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detector</title>
+    <meta name="author" content="kcorrai" />
+    <meta name="description" content="Flower Detector Page of Flower Detector Website" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="icon" href="../static/img/flower-detector-icon.png" />
+  </head>
+  <body>
+    <header class="header">
+      {% block content %}
+      <h1 class="header__h1">Flower Detector</h1>
+      <nav class="header__nav">
+        <ul class="header__ul">
+          <li>
+            <a class="a" href={{'/'}}>Home</a>
+          </li>
+          <li>
+            <a class="a" href={{'/contact'}}>Contact</a>
+          </li>
+          <li>
+            <a class="a" href={{'/about'}}>About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <img src="../static/img/bg5.jpg" alt="Welcome to Flower Detector!" width="1200" />
+    </section>
+
+    <main>
+      <h2 class="about_h2">How To Use Flower Detector?</h2>
+      <p>This detector <b>"teachable machine"</b> shows which type of flower a flower image belongs to using a model I trained.
+      Just press the button and select an image from your file directory. The result looks like the example below.</p>
+      
+      {% if class_name %}
+      <div class="detector_result">
+        <img class="result_img" src="../static/uploads/{{ filename }}" alt="flower image">
+        <p class="result_p">This is a <b style="font-style: italic;">{{ class_name }}</b> with <b style="font-style: italic;">%{{ confidence_score }}</b> persentage.</p>
+      </div>
+      <a class="flower_a" href="/flower-detector">Come back To Detector</a>
+      {% else %}
+      <div class="detector_contain">
+        <form action="/flower-detector" method="post" enctype="multipart/form-data">
+          <input type="file" name="fimage" id="fimage">
+          <div class="denemeking">
+          <label class="detector_label" for="fimage">Choose File</label>
+          <input class="detector_submit" type="submit" value="Upload Image">
+        </div>
+        </form>
+      </div>
+      <h3 class="index_h3">For Example...</h3>
+      <img class="begin_detector_img" src="../static/img/forexample.png" alt="">
+      {% endif %}
+    {% endblock %}
+    </main>
+
+
+    <footer class="footer">
+      <p>
+        <span class="nowrap">Copyright &copy; <time id="year"></time></span>
+        <span class="nowrap">Flower Detector</span>
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flower Detector | Home Page</title>
+    <meta name="author" content="kcorrai" />
+    <meta name="description" content="Home Page of Flower Detector Website" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="icon" href="../static/img/flower-detector-icon.png" />
+  </head>
+  <body>
+    <header class="header">
+      {% block content %}
+      <h1 class="header__h1">Welcome to Flower Detector!</h1>
+      <nav class="header__nav">
+        <ul class="header__ul">
+          <li>
+            <a class="a" href={{'/'}}>Home</a>
+          </li>
+          <li>
+            <a class="a" href={{'/flower-detector'}}>Detector</a>
+          </li>
+          <li>
+            <a class="a" href={{'/contact'}}>Contact</a>
+          </li>
+          <li>
+            <a class="a" href={{'/about'}}>About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <img src="../static/img/bg4high.jpg" alt="Welcome to Flower Detector!" width="1200" />
+    </section>
+
+    <main class="index_main">
+      {% if search_layout == True %}
+      <h2>Searching Flowers</h2>
+      <p class="p_bottom">Currently, you can access exactly <b>15 flower types</b> on this site. All you have to 
+        do is choose a flower type from the "search" button.</p>
+      <div class="search_flower">
+        <form action="{{ url_for('index') }}" method="post">
+      <label class="index_label" for="flowers">Please Choose a Type of Flower:</label>
+      <select id="flowers" name="flowers">
+        <option value="Rose">Rose</option>
+        <option value="Tulip">Tulip</option>
+        <option value="Sunflower">Sunflower</option>
+        <option value="Daffodil">Daffodil</option>
+        <option value="Lily">Lily</option>
+        <option value="Orchid">Orchid</option>
+        <option value="Marigold">Marigold</option>
+        <option value="Daisy">Daisy</option>
+        <option value="Lavender">Lavender</option>
+        <option value="Peony">Peony</option>
+        <option value="Iris">Iris</option>
+        <option value="Chrysanthemum">Chrysanthemum</option>
+        <option value="Poppy">Poppy</option>
+        <option value="Hyacinth">Hyacinth</option>
+        <option value="Carnation">Carnation</option>
+        </select>
+        <button class="index_submit" type="submit"><p class="_">🔎</p></button>
+      </form>
+      </div>
+
+      <h3 class="index_h3">Some Flower Images... </h3>
+      <div class="six_images">
+        <img class="six_images_img" src="../static/img/square1.jpg" alt="flower photo" width="300">
+        <img class="six_images_img" src="../static/img/square2.jpg" alt="flower photo" width="300">
+        <img class="six_images_img" src="../static/img/square3.jpg" alt="flower photo" width="300">
+        <img class="six_images_img" src="../static/img/square4.jpg" alt="flower photo" width="300">
+        <img class="six_images_img" src="../static/img/square5.jpg" alt="flower photo" width="300">
+        <img class="six_images_img" src="../static/img/square6.jpg" alt="flower photo" width="300">
+      </div>
+      {% else %}
+      <div class="flower_header">
+        <h2 class="index_flower_h2">{{ flower_name }} Info:</h2>
+        <div class="index_flower_p">
+          <p class="flower_p">{{ info }}</p>
+        </div>
+      </div>
+      <div class="flower_type_image">
+        <img class="flower_type_image_img" src={{image}} width="800">
+      </div>
+      <div class="about_flower">
+        <table>
+          <tr>
+            <th></th>
+            <th>Flower Features</th>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td>{{ flower_name }}</td>
+          </tr>
+          <tr> 
+            <th>Latin Name</th>
+            <td>{{ latin_name }}</td>
+          </tr>
+          <tr> 
+            <th>Color</th>
+            <td>{{ color }}</td>
+          </tr>
+          <tr> 
+            <th>Petal Count</th>
+            <td>{{ petal_count }}</td>
+          </tr>
+          <tr> 
+            <th>Bloom Season</th>
+            <td>{{ bloom_Season }}</td>
+          </tr>
+          <tr> 
+            <th>Height(cm)</th>
+            <td>{{ height_cm }}</td>
+          </tr>
+          <tr> 
+            <th>Growing Conditions</th>
+            <td>{{ growing_conditions }}</td>
+          </tr>
+          <tr> 
+            <th>Common Use</th>
+            <td>{{ common_use }}</td>
+          </tr>
+        </table>
+      </div>
+      <a class="flower_a" href={{'/'}}>Come Back Home Page</a>
+      {% endif %}
+      {% endblock %}
+    </main>
+
+
+    <footer class="footer">
+      <p>
+        <span class="nowrap">Copyright &copy; <time id="year"></time></span>
+        <span class="nowrap">Flower Detector</span>
+      </p>
+    </footer>
+  </body>
+</html>

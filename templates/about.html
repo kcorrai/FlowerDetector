@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <meta name="author" content="kcorrai" />
+    <meta name="description" content="Home Page of Flower Detector Website" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="icon" href="../static/img/flower-detector-icon.png" />
+  </head>
+  <body>
+    <header class="header">
+      {% block content %}
+      <h1 class="header__h1">About Us</h1>
+      <nav class="header__nav">
+        <ul class="header__ul">
+          <li>
+            <a class="a" href={{'/'}}>Home</a>
+          </li>
+          <li>
+            <a class="a" href={{'/flower-detector'}}>Detector</a>
+          </li>
+          <li>
+            <a class="a" href={{'/contact'}}>Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <img src="../static/img/aboutbg.jpg" alt="Welcome to Flower Detector!" width="1200" />
+    </section>
+
+    <main class="other_main">
+      <h2 class="about_h2">About Me</h2>
+      <p>
+        Hello, i'm kcorrai. I want to be a junior developer this year. I'm currently learning <b>Python</b>. I want to
+        improve myself in coding for the summer.
+      </p>
+      <br />
+      <h2 class="about_h2">About Flower Detector</h2>
+      <p>
+        You can think of this website as a flower dictionary. You can find an unfamiliar flower type in the
+        <b>"detector"</b> section. You can take a look at information about flowers on our <b>"home"</b> page. If you
+        have a suggestion to improve the site, you can contact us via the <b>"contact"</b> section.
+      </p>
+      {% endblock %}
+    </main>
+
+
+    <footer class="footer">
+      <p>
+        <span class="nowrap">Copyright &copy; <time id="year"></time></span>
+        <span class="nowrap">Flower Detector</span>
+      </p>
+    </footer>
+  </body>
+</html>
